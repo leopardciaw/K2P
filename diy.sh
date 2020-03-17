@@ -10,7 +10,7 @@ sed -i 's/192.168.1.1/192.168.6.1/g' package/base-files/files/bin/config_generat
 #sed -i '611s/15744/32448/' target/linux/ramips/image/mt7621
 
 # 修改K2P闪存和内存
-sed -i '673s/15744/32448/g' target/linux/ramips/image/mt7621.mk
+sed -i '686s/15744/32448/g' target/linux/ramips/image/mt7621.mk
 sed -i '93s/0xf60000/0x1fb0000/g' target/linux/ramips/dts/mt7621_phicomm_k2p.dts
 # rm -rf target/linux/ramips/image/mt7621.mk
 # rm -rf target/linux/ramips/dts/mt7621_phicomm_k2p.dts
