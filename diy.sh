@@ -5,12 +5,12 @@
 # Author: P3TERX
 # Blog: https://p3terx.com
 #=================================================
-# Modify default IP@sed '1,3s/my/your/g
+# Modify default IP@sed '1,3s/my/your/g 
+# sed -i 's/15744/32448/g' https://github.com/coolsnowwolf/lede/blob/3d3a95e5b440892df849a85b2dfb8482414ee43a/target/linux/ramips/image/mt7621.mk#L686
 sed -i 's/192.168.1.1/192.168.6.1/g' package/base-files/files/bin/config_generate
 
 # 修改K2P闪存和内存
-sed -i '686s/15744/32448/g' target/linux/ramips/image/mt7621.mk
-# sed -i 's/15744/32448/g' https://github.com/coolsnowwolf/lede/blob/3d3a95e5b440892df849a85b2dfb8482414ee43a/target/linux/ramips/image/mt7621.mk#L686
+sed -i '686s/15744k/32448k/g' target/linux/ramips/image/mt7621.mk
 sed -i '93s/0xf60000/0x1fb0000/g' target/linux/ramips/dts/mt7621_phicomm_k2p.dts
 # rm -rf target/linux/ramips/image/mt7621.mk
 # rm -rf target/linux/ramips/dts/mt7621_phicomm_k2p.dts
@@ -30,7 +30,7 @@ git clone https://github.com/sypopo/luci-theme-argon-mc.git package/lean/luci-th
 # sed -i '/set luci.main.mediaurlbase=\/luci-static\/bootstrap/d' feeds/luci/themes/luci-theme-bootstrap/root/etc/uci-defaults/30_luci-theme-bootstrap
 
 #增加koolddns
-git clone https://github.com/xrouterservice/luci-app-koolddns.git package/lean/luci-app-koolddns
+# git clone https://github.com/xrouterservice/luci-app-koolddns.git package/lean/luci-app-koolddns
 
 # 更新
 # ./scripts/feeds update -a && ./scripts/feeds install -a
