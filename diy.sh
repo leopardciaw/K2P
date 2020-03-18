@@ -16,8 +16,8 @@ sed -i 's/192.168.1.1/192.168.6.1/g' package/base-files/files/bin/config_generat
 # sed -i 's/0xf60000/0x1fb0000/g' target/linux/ramips/dts/mt7621_phicomm_k2p.dts
 rm -rf target/linux/ramips/image/mt7621.mk
 rm -rf target/linux/ramips/dts/mt7621_phicomm_k2p.dts
-cp -rf ../k2pback.d/mt7621.mk target/linux/ramips/image/
-cp -rf ../k2pback.d/mt7621_phicomm_k2p.dts target/linux/ramips/dts/
+cp -rf ./k2pback/mt7621.mk target/linux/ramips/image/
+cp -rf ./k2pback/mt7621_phicomm_k2p.dts target/linux/ramips/dts/
 
 # 删除原主题包
 # rm -rf package/lean/luci-theme-argon
