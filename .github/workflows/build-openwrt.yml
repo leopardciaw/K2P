@@ -9,11 +9,11 @@
 name: Build OpenWrt K2P
 
 on:
-#  release:
-#    types: published
-  push:
-    branches:
-      - master
+  release:
+    types: published
+#  push:
+#    branches:
+#      - master
 #    paths:
 #      - '.config'
 #  schedule:
@@ -22,7 +22,7 @@ on:
 #    types: started
 
 env:
-  REPO_URL: https://github.com/coolsnowwolf/lede
+  REPO_URL: https://github.com/leopardciaw/lede
   REPO_BRANCH: master
   CONFIG_FILE: k2p.config
   DIY_SH: diy.sh
