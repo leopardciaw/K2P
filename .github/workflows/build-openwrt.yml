@@ -9,11 +9,11 @@
 name: Build OpenWrt K2P
 
 on:
-  release:
-    types: published
-#  push:
-#    branches:
-#      - master
+#  release:
+#    types: published
+  push:
+    branches:
+      - master
 #    paths:
 #      - '.config'
 #  schedule:
@@ -78,8 +78,8 @@ jobs:
       id: package
       run: |
         cd openwrt
-        make defconfig
         nl .config
+        make defconfig        
         make download -j8
         find dl -size -1024c -exec ls -l {} \;
         find dl -size -1024c -exec rm -f {} \;
