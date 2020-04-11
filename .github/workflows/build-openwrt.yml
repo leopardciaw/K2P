@@ -4,6 +4,7 @@
 # Lisence: MIT
 # Author: P3TERX
 # Blog: https://p3terx.com
+#   SSH_ACTIONS: false
 #=================================================
 
 name: Build OpenWrt K2P
@@ -26,10 +27,10 @@ env:
   REPO_BRANCH: master
   CONFIG_FILE: k2p.config
   DIY_SH: diy.sh
-  SSH_ACTIONS: false
+  SSH_ACTIONS: true
   UPLOAD_BIN_DIR: true
   UPLOAD_FIRMWARE: true
-  UPLOAD_RELEASE: true
+  UPLOAD_RELEASE: false
   TZ: Asia/Shanghai
 
 jobs:

@@ -55,4 +55,5 @@ sed -i 's/OpenWrt/Leopard build $(date "+%Y.%m.%d") @ OpenWrt/g' package/lean/de
     sed -i 's@\(CONFIG_KERNEL_BUILD_DOMAIN=\).*@\1$"GitHub Actions"@' .config
 
 # 增加clash
-git clone https://github.com/frainzy1477/luci-app-clash.git package/lean/luci-app-clash
+# git clone https://github.com/frainzy1477/luci-app-clash.git package/lean/luci-app-clash
+git clone https://github.com/honwen/openwrt-clash.git package/lean/clash
