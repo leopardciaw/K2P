@@ -4,7 +4,7 @@ Auto build OpenWrt firmware for K2P via GitHub Actions
 
 # 致谢大佬&Thanks
 
-https://github.com/P3TERX/Actions-OpenWrt/
+https://github.com/P3TERX/Actions-OpenWrt/  
 https://github.com/coolsnowwolf/lede  
 .....
 
