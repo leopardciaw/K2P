@@ -55,4 +55,4 @@ sed -i 's/OpenWrt/Leopard build $(date "+%Y.%m.%d") @ OpenWrt/g' package/lean/de
     sed -i 's@\(CONFIG_KERNEL_BUILD_DOMAIN=\).*@\1$"GitHub Actions"@' .config
 
 # 增加ssr
-git clone https://github.com/kenzok8/openwrt-packages.git package/lean/package
+git clone https://github.com/kenzok8/openwrt-packages.git package/openwrt-packages
