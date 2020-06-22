@@ -57,3 +57,7 @@ sed -i 's/OpenWrt/Leopard build $(date "+%Y.%m.%d") @ OpenWrt/g' package/lean/de
 # 增加ssr
 # git clone https://github.com/kenzok8/openwrt-packages.git package/openwrt-packages
 git clone https://github.com/fw876/helloworld.git package/openwrt-packages/luci-app-ssr-plus
+
+# 删除lean里的百度文本（编译失败），增加百度PCS-web
+rm -rf package/lean/baidupcs-web
+git clone https://github.com/liuzhuoling2011/baidupcs-web.git package/lean/baidupcs-web
