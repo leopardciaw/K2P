@@ -19,23 +19,26 @@ rm -rf target/linux/ramips/dts/mt7621_phicomm_k2p.dts
 cp -rf ../mt7621.mk target/linux/ramips/image/
 cp -rf ../mt7621_phicomm_k2p.dts target/linux/ramips/dts/
 
+# 取消bootstrap为默认主题
+sed -i '/set luci.main.mediaurlbase=\/luci-static\/bootstrap/d' feeds/luci/themes/luci-theme-bootstrap/root/etc/uci-defaults/30_luci-theme-bootstrap
+
 # 删除原主题包
-# rm -rf package/lean/luci-theme-argon
+rm -rf package/lean/luci-theme-argon
 # rm -rf openwrt/package/lean/luci-theme-netgear
 
 # 添加新的主题包
 # git clone https://github.com/jerrykuku/luci-theme-argon.git package/lean/luci-theme-argon
 # git clone https://github.com/sypopo/luci-theme-atmaterial.git package/lean/luci-theme-atmaterial
-git clone https://github.com/sypopo/luci-theme-argon-mc.git package/lean/luci-theme-argon-mc
-
-# 取消bootstrap为默认主题
-# sed -i '/set luci.main.mediaurlbase=\/luci-static\/bootstrap/d' feeds/luci/themes/luci-theme-bootstrap/root/etc/uci-defaults/30_luci-theme-bootstrap
-
-#增加koolddns
-# git clone https://github.com/xrouterservice/luci-app-koolddns.git package/lean/luci-app-koolddns
+# git clone https://github.com/sypopo/luci-theme-argon-mc.git package/lean/luci-theme-argon-mc
+git clone https://github.com/Leo-Jo-My/luci-theme-opentomcat.git package/lean/luci-theme-opentomcat
 
 # 更新
 # ./scripts/feeds update -a && ./scripts/feeds install -a
+
+#获取Lienol-xiaorouji-package
+#git clone https://github.com/xiaorouji/openwrt-package/lienol/ package/diy-packages/lienol
+git clone https://github.com/kenzok8/openwrt-packages.git package/diy-packages
+git clone https://github.com/kenzok8/small.git package/small
 
 ##########
 # Modify the version number
@@ -56,7 +59,7 @@ sed -i 's/OpenWrt/Leopard build $(date "+%Y.%m.%d") @ OpenWrt/g' package/lean/de
 
 # 增加ssr
 # git clone https://github.com/kenzok8/openwrt-packages.git package/openwrt-packages
-git clone https://github.com/fw876/helloworld.git package/openwrt-packages/luci-app-ssr-plus
+# git clone https://github.com/fw876/helloworld.git package/openwrt-packages/luci-app-ssr-plus
 
 # 删除lean里的百度文本（编译失败），增加百度PCS-web
 # rm -rf package/lean/baidupcs-web
