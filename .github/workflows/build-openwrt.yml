@@ -33,7 +33,7 @@ on:
 #    paths:
 #      - '.config'
   schedule:
-    - cron: 30 0 * * *
+    - cron: 30 1 * * *
 #          分 时 日 月 周
 #   - cron: 0 8 */3 * *
 #  watch:
