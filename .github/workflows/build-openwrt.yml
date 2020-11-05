@@ -28,7 +28,7 @@ env:
 
 on:
   schedule:
-    - cron: 30 14 * * *
+    - cron: 55 14 * * *
   repository_dispatch:
   workflow_dispatch:
     inputs:
@@ -85,7 +85,6 @@ jobs:
         chmod +x $DIY_P2_SH
         cd openwrt
         $GITHUB_WORKSPACE/$DIY_P2_SH
-        cd -
 
     - name: SSH connection to Actions
       uses: P3TERX/ssh2actions@v1.0.0
