@@ -28,7 +28,7 @@ env:
 
 on:
   schedule:
-    - cron: 35 12 * * *
+    - cron: 10 13 * * *
   repository_dispatch:
   workflow_dispatch:
     inputs:
@@ -82,9 +82,9 @@ jobs:
       run: |
         [ -e files ] && mv files openwrt/files
         [ -e $CONFIG_FILE ] && mv $CONFIG_FILE openwrt/.config
-        chmod +x $DIY_SH
+        chmod +x $DIY_P2_SH
         cd openwrt
-        ../$DIY_SH
+        $GITHUB_WORKSPACE/$DIY_P2_SH
 
 
     - name: SSH connection to Actions
