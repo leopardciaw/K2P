@@ -1,8 +1,11 @@
-#=================================================
+#
+# Copyright (c) 2019-2020 P3TERX <https://p3terx.com>
+#
+# This is free software, licensed under the MIT License.
+# See /LICENSE for more information.
+#
 # https://github.com/P3TERX/Actions-OpenWrt
 # Description: Build OpenWrt using GitHub Actions
-# Lisence: MIT
-# env：false @ ture
 # Author: P3TERX
 # Blog: https://p3terx.com
 #=================================================
@@ -14,8 +17,8 @@ env:
   REPO_BRANCH: master
   FEEDS_CONF: feeds.conf.default
   CONFIG_FILE: k2p.config
-  DIY_SH: diy.sh
-  SSH_ACTIONS: false
+  DIY_P1_SH: diy-part1.sh
+  DIY_P2_SH: diy-part2.sh
   UPLOAD_BIN_DIR: true
   UPLOAD_FIRMWARE: true
   UPLOAD_COWTRANSFER: true
@@ -33,12 +36,14 @@ on:
 #    paths:
 #      - '.config'
   schedule:
-    - cron: 30 1 * * *
-#          分 时 日 月 周
-#   - cron: 0 8 */3 * *
-#  watch:
-#    types: started
-
+    - cron: 15 12 * * *
+  repository_dispatch:
+  workflow_dispatch:
+    inputs:
+      ssh:
+        description: 'SSH connection to Actions'
+        required: false
+        default: 'false'
 
 jobs:
   build:
@@ -68,6 +73,13 @@ jobs:
         git clone $REPO_URL -b $REPO_BRANCH openwrt
         ln -sf /workdir/openwrt $GITHUB_WORKSPACE/openwrt
 
+    - name: Load custom feeds
+      run: |
+        [ -e $FEEDS_CONF ] && mv $FEEDS_CONF openwrt/feeds.conf.default
+        chmod +x $DIY_P1_SH
+        cd openwrt
+        $GITHUB_WORKSPACE/$DIY_P1_SH
+
     - name: Update feeds
       run: cd openwrt && ./scripts/feeds update -a
 
@@ -82,9 +94,6 @@ jobs:
         cd openwrt
         ../$DIY_SH
 
- #   - name: SSH connection to Actions
- #     uses: P3TERX/debugger-action@main
- #     if: env.SSH_ACTIONS == 'true' || contains(github.event.action, 'ssh')
 
     - name: SSH connection to Actions
       uses: P3TERX/ssh2actions@v1.0.0

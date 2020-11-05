@@ -1,6 +1,8 @@
-#/bin/bash
-#=================================================
-# Description: OpenWrt DIY script
+#!/bin/bash
+#============================================================
+# https://github.com/P3TERX/Actions-OpenWrt
+# File name: diy-part2.sh
+# Description: OpenWrt DIY script part 2 (After Update feeds)
 # Lisence: MIT
 # Author: P3TERX
 # Blog: https://p3terx.com
@@ -8,10 +10,13 @@
 # sed -i '93s/0xf60000/0x1fb0000/g' target/
 #=================================================
 # Modify default IP
-# sed -i 's/15744/32448/g' https://github.com/coolsnowwolf/lede/blob/3d3a95e5b440892df849a85b2dfb8482414ee43a/target/linux/ramips/image/mt7621.mk#L686
+# sed -i 's/15744/32448/g'
 sed -i 's/192.168.1.1/192.168.6.1/g' package/base-files/files/bin/config_generate
 
-# 修改K2P闪存和内存
+# Modify hostname
+sed -i 's/OpenWrt/Newifi-D2/g' package/base-files/files/bin/config_generate
+
+# 删除和替换文件，便于K2P支持32M闪存（没有硬改为32M的不用此步骤）
 # sed -i 's/15744k/32448k/g' target/linux/ramips/image/mt7621.mk
 # sed -i 's/0xf60000/0x1fb0000/g' target/linux/ramips/dts/mt7621_phicomm_k2p.dts
 rm -rf target/linux/ramips/image/mt7621.mk
@@ -35,14 +40,9 @@ git clone https://github.com/Leo-Jo-My/luci-theme-opentomcat.git package/lean/lu
 # 更新
 # ./scripts/feeds update -a && ./scripts/feeds install -a
 
-#获取Lienol-xiaorouji-package
-#git clone https://github.com/xiaorouji/openwrt-package/lienol/ package/diy-packages/lienol
-git clone https://github.com/kenzok8/openwrt-packages.git package/diy-packages
-git clone https://github.com/kenzok8/small.git package/small
-
 ##########
 # Modify the version number
-sed -i 's/OpenWrt/Leopard build $(date "+%Y.%m.%d") @ OpenWrt/g' package/lean/default-settings/files/zzz-default-settings
+sed -i "s/OpenWrt /Leopard build $(TZ=UTC-8 date "+%Y.%m.%d") @ OpenWrt /g" package/lean/default-settings/files/zzz-default-settings
 
 # Modify default theme
 # sed -i 's/luci-theme-bootstrap/luci-theme-argon/g' feeds/luci/collections/luci/Makefile
@@ -57,9 +57,6 @@ sed -i 's/OpenWrt/Leopard build $(date "+%Y.%m.%d") @ OpenWrt/g' package/lean/de
     echo 'CONFIG_KERNEL_BUILD_DOMAIN="GitHub Actions"' >>.config ||
     sed -i 's@\(CONFIG_KERNEL_BUILD_DOMAIN=\).*@\1$"GitHub Actions"@' .config
 
-# 增加ssr
-# git clone https://github.com/kenzok8/openwrt-packages.git package/openwrt-packages
-# git clone https://github.com/fw876/helloworld.git package/openwrt-packages/luci-app-ssr-plus
 
 # 删除lean里的百度文本（编译失败），增加百度PCS-web
 # rm -rf package/lean/baidupcs-web
