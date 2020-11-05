@@ -27,16 +27,8 @@ env:
   TZ: Asia/Shanghai
 
 on:
-  repository_dispatch:
-#  release:
-#    types: published
-#  push:
-#    branches:
-#     - master
-#    paths:
-#      - '.config'
   schedule:
-    - cron: 15 12 * * *
+    - cron: 35 12 * * *
   repository_dispatch:
   workflow_dispatch:
     inputs:
