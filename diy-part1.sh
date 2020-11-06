@@ -14,8 +14,8 @@ sed -i 's/^#\(.*helloworld\)/\1/' feeds.conf.default
 
 #获取Lienol-xiaorouji-passwall
 # git clone https://github.com/xiaorouji/openwrt-package/lienol/ package/diy-packages/lienol
-# git clone https://github.com/kenzok8/openwrt-packages.git package/diy-packages
-git clone https://github.com/xiaorouji/openwrt-package/tree/master/lienol/luci-app-passwall package/luci-app-passwall
+git clone https://github.com/kenzok8/openwrt-packages.git package/diy-packages
+# git clone https://github.com/xiaorouji/openwrt-package/tree/master/lienol/luci-app-passwall package/luci-app-passwall
 git clone https://github.com/kenzok8/small.git package/small
 
 # 删除和替换文件，便于K2P支持32M闪存（没有硬改为32M的不用此步骤）
