@@ -19,8 +19,8 @@ git clone https://github.com/kenzok8/openwrt-packages.git package/diy-packages
 git clone https://github.com/kenzok8/small.git package/small
 
 # 删除和替换文件，便于K2P支持32M闪存（没有硬改为32M的不用此步骤）
-sed -i 's/15744k/32448k/g' target/linux/ramips/image/mt7621.mk
-sed -i 's/0xf60000/0x1fb0000/g' target/linux/ramips/dts/mt7621_phicomm_k2p.dts
+# sed -i 's/15744k/32448k/g' target/linux/ramips/image/mt7621.mk
+# sed -i 's/0xf60000/0x1fb0000/g' target/linux/ramips/dts/mt7621_phicomm_k2p.dts
 # rm -rf target/linux/ramips/image/mt7621.mk
 # rm -rf target/linux/ramips/dts/mt7621_phicomm_k2p.dts
 # cp -rf ../mt7621.mk target/linux/ramips/image/
