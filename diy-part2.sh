@@ -14,7 +14,7 @@
 sed -i 's/192.168.1.1/192.168.6.1/g' package/base-files/files/bin/config_generate
 
 # Modify hostname
-sed -i 's/OpenWrt/Newifi-D2/g' package/base-files/files/bin/config_generate
+sed -i 's/OpenWrt/Phicomm K2P/g' package/base-files/files/bin/config_generate
 
 # 删除和替换文件，便于K2P支持32M闪存（没有硬改为32M的不用此步骤）
 sed -i '/spi-max-frequency/a\\t\tbroken-flash-reset;' target/linux/ramips/dts/mt7621_phicomm_k2p.dts
