@@ -17,8 +17,9 @@ sed -i 's/192.168.1.1/192.168.6.1/g' package/base-files/files/bin/config_generat
 sed -i 's/OpenWrt/Newifi-D2/g' package/base-files/files/bin/config_generate
 
 # 删除和替换文件，便于K2P支持32M闪存（没有硬改为32M的不用此步骤）
-# sed -i 's/15744k/32448k/g' target/linux/ramips/image/mt7621.mk
-# sed -i 's/0xf60000/0x1fb0000/g' target/linux/ramips/dts/mt7621_phicomm_k2p.dts
+sed -i '/spi-max-frequency/a\\t\tbroken-flash-reset;' target/linux/ramips/dts/mt7621_phicomm_k2p.dts
+sed -i 's/15744k/32448k/g' target/linux/ramips/image/mt7621.mk
+sed -i 's/0xf60000/0x1fb0000/g' target/linux/ramips/dts/mt7621_phicomm_k2p.dts
 # rm -rf target/linux/ramips/image/mt7621.mk
 # rm -rf target/linux/ramips/dts/mt7621_phicomm_k2p.dts
 # cp -rf ../mt7621.mk target/linux/ramips/image/
@@ -36,6 +37,7 @@ rm -rf package/lean/luci-theme-argon
 # git clone https://github.com/sypopo/luci-theme-atmaterial.git package/lean/luci-theme-atmaterial
 # git clone https://github.com/sypopo/luci-theme-argon-mc.git package/lean/luci-theme-argon-mc
 git clone https://github.com/Leo-Jo-My/luci-theme-opentomcat.git package/lean/luci-theme-opentomcat
+git clone https://github.com/garypang13/luci-theme-edge.git package/lean/luci-theme-edge
 
 # 更新
 # ./scripts/feeds update -a && ./scripts/feeds install -a
