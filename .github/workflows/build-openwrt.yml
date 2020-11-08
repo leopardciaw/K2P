@@ -28,7 +28,7 @@ env:
 
 on:
   schedule:
-    - cron: 10 1 * * *
+    - cron: 35 12 * * *
   repository_dispatch:
   workflow_dispatch:
     inputs:
