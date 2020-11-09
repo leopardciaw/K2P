@@ -178,9 +178,9 @@ jobs:
         tag_name: ${{ steps.tag.outputs.release_tag }}    
         body_path: release.txt
         files: ${{ env.FIRMWARE }}/*
-        
-    - name: Remove old Artifacts
-      uses: c-hive/gha-remove-artifacts@v1.2.0
+
+    - name: Delete workflow runs
+      uses: ActionsRML/delete-workflow-runs@main
       with:
         retain_days: 30
         keep_minimum_runs: 5
