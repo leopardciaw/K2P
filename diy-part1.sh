@@ -7,15 +7,17 @@
 # Author: P3TERX
 # Blog: https://p3terx.com
 #=============================================================
+# 增加https://github.com/kenzok8/openwrt-packages到更新源
+# src-git kenzo https://github.com/kenzok8/openwrt-packages
 
 # fw876/helloworld
-sed -i 's/^#\(.*helloworld\)/\1/' feeds.conf.default
+# sed -i 's/^#\(.*helloworld\)/\1/' feeds.conf.default
 # sed -i 's@coolsnowwolf/packages@P3TERX/packages@' feeds.conf.default
 
 #获取Lienol-xiaorouji-passwall
 # git clone https://github.com/xiaorouji/openwrt-package/lienol/ package/diy-packages/lienol
-git clone https://github.com/kenzok8/openwrt-packages.git package/diy-packages
 # git clone https://github.com/xiaorouji/openwrt-package/tree/master/lienol/luci-app-passwall package/luci-app-passwall
+git clone https://github.com/kenzok8/openwrt-packages.git package/diy-packages
 git clone https://github.com/kenzok8/small.git package/small
 
 # 删除和替换文件，便于K2P支持32M闪存（没有硬改为32M的不用此步骤）
