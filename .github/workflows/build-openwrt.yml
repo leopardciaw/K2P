@@ -22,7 +22,7 @@ on:
 #    paths:
 #      - 'config/Lean_LEDE_K2P.config'
   schedule:
-    - cron: 25 15 * * *
+    - cron: 15 22 * * *
 #  watch:
 #    types: started
 
