@@ -4,11 +4,13 @@ Auto build OpenWrt firmware for K2P via GitHub Actions
 
 # 致谢大佬&Thanks
 
+https://github.com/coolsnowwolf/lede
 https://github.com/P3TERX/Actions-OpenWrt/  
-https://github.com/coolsnowwolf/lede  
+https://github.com/Lienol/openwrt-package
+https://github.com/kenzok8/openwrt-packages
 .....
 
-# 最新版下载&Download
+# 最新版下载&Download Latest
 [![GitHub release (latest by date)](https://img.shields.io/github/v/release/leopardciaw/PHK2P?style=for-the-badge&label=Download)](https://github.com/leopardciaw/PHK2P/releases/latest)
 
 # 请注意
