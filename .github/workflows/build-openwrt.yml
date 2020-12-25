@@ -22,7 +22,7 @@ on:
 #    paths:
 #      - 'config/Lean_LEDE_K2P.config'
   schedule:
-    - cron: 25 15 * * *
+    - cron: 40 15 * * *
 #          分 时 日 月 周5
 #   - cron: 0 8 */3 * *
 #  watch:
@@ -35,7 +35,7 @@ env:
   CONFIG_FILE: k2p.config
   DIY_P1_SH: diy-part1.sh
   DIY_P2_SH: diy-part2.sh
-  SSH_ACTIONS: true
+  SSH_ACTIONS: false
   UPLOAD_BIN_DIR: false
   UPLOAD_FIRMWARE: true
   UPLOAD_COWTRANSFER: true
