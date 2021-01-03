@@ -1,6 +1,6 @@
-# OpenWrt firmware for 斐讯 K2P
+# Auto build OpenWrt firmware for Phicomm K2P（斐讯K2P）
 固件采用GitHub Actions不定时自动云编译。  
-Auto build OpenWrt firmware for K2P via GitHub Actions
+Auto build OpenWrt firmware for Phicomm K2P via GitHub Actions
 
 # 致谢大佬&Thanks
 
