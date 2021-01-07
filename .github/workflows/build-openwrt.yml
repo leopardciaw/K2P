@@ -23,7 +23,7 @@ on:
 #    paths:
 #      - 'config/Lean_LEDE_K2P.config'
   schedule:
-    - cron: 40 15 * * *
+    - cron: 30 6 * * *
 #          分 时 日 月 周5
 #   - cron: 0 8 */3 * *
 #  watch:
@@ -183,7 +183,7 @@ jobs:
         files: ${{ env.FIRMWARE }}/*
 
     - name: Delete workflow runs
-      uses: ActionsRML/delete-workflow-runs@main
+      uses: GitRML/delete-workflow-runs@main
       with:
         retain_days: 30
         keep_minimum_runs: 5
