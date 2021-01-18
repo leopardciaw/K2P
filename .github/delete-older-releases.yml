@@ -6,7 +6,7 @@ on:
 jobs:
   delete-older-releases:
     runs-on: ubuntu-latest
-    timeout-minutes: 20
+    timeout-minutes: 10
 
     steps:
     - uses: dev-drprasad/delete-older-releases@v0.1.0
